@@ -32,4 +32,4 @@ export const HoangioComponentFactory = (name: string, school: String, sibling: E
         button.addEventListener('click', (_) => sibling.parentNode.appendChild(overlay.render()))
         sibling.parentNode.appendChild(button);
     }
-})
+});
