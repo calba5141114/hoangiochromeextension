@@ -22,8 +22,6 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
         }
     } catch (error) {
         sendResponse({ message: error });
-         // need to return true in order to keep channel open during async tasks.
-        return true;
     }
 });
 
