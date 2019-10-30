@@ -2,7 +2,7 @@
 const handleNetworking = async (request: any) => {
     try {
         const data = await fetch(request.endpoint, { method: request.method });
-        return await fetch(request.endpoint, { method: request.method })
+        return await(await fetch(request.endpoint, { method: request.method })).json()
     } catch (error) {
         console.error(error);
     }
