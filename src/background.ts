@@ -1,7 +1,7 @@
 
 const handleNetworking = async (request: any) => {
     try {
-        const data = await fetch(request.endpoint, { method: request.method }); 
+        const data = await fetch(request.endpoint, { method: request.method });
         return await fetch(request.endpoint, { method: request.method })
     } catch (error) {
         console.error(error);
@@ -9,11 +9,15 @@ const handleNetworking = async (request: any) => {
 }
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
-    if (request.networking) {
-        sendResponse({ result: await handleNetworking(request) })
-    }
-    else {
-        sendResponse({ message: "unknown request and or command." })
+    try {
+        if (request.networking) {
+            sendResponse({ result: await handleNetworking(request) });
+        }
+        else {
+            sendResponse({ message: "unknown request and or command." });
+        }
+    } catch (error) {
+        sendResponse({ message: error });
     }
 });
 
