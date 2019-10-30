@@ -12,7 +12,7 @@ const OverlayFactory = (name: String, school: String, data: any, sibling: Elemen
 
     const retrieve_scores = async () => {
         chrome.runtime.sendMessage({ networking: true, method: 'GET', endpoint: SOLRQueryGenerator(name, school) }, response => {
-            console.log(response.message);
+            console.log(response.result);
         });
     }
 
