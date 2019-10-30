@@ -11,6 +11,7 @@ const SOLRQueryGenerator = (name: String, school: String) => `https://search-pro
 const OverlayFactory = (name: String, school: String, data: any, sibling: Element): any => {
 
     const retrieve_scores = async () => {
+        console.log(SOLRQueryGenerator(name, school))
         chrome.runtime.sendMessage({ networking: true, method: 'GET', endpoint: SOLRQueryGenerator(name, school) }, response => {
             console.log(response.result);
         });
