@@ -17,8 +17,6 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
         }
         else {
             sendResponse({ message: "unknown request and or command." });
-             // need to return true in order to keep channel open during async tasks.
-            return true;
         }
     } catch (error) {
         sendResponse({ message: error });
