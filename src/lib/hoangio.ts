@@ -8,6 +8,7 @@ import * as Hammer from 'hammerjs';
  */
 const OverlayFactory = (name: String, school: String, data: any, sibling: Element): any => ({
     render: (): HTMLElement => {
+        console.log(name, school, data);
         const container = document.createElement("div")
         container.setAttribute("class", "hoangio-overlay")
         container.style.display = "block"
