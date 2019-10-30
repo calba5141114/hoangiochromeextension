@@ -1,6 +1,11 @@
 
 const handleNetworking = async (request: any) => {
-    return await fetch(request.endpoint, { method: request.method })
+    try {
+        const data = await fetch(request.endpoint, { method: request.method }); 
+        return await fetch(request.endpoint, { method: request.method })
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
