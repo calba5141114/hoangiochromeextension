@@ -1,9 +1,14 @@
 
-const handleNetworking = (request: any) => {
+const handleNetworking = async (request: any) => {
 
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.networking) handleNetworking(request);
+chrome.runtime.onMessage.addListener( async (request, sender, sendResponse) => {
+    if (request.networking) {
+        handleNetworking(request)
+    }
+    else {
+        sendResponse({message: "unknown request and or command."})
+    }
 });
 
