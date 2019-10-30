@@ -9,8 +9,8 @@ const SOLRQueryGenerator = (name: String, school: String) => `https://search-pro
  * @param data - JSON data
  */
 const OverlayFactory = (name: String, school: String, data: any, sibling: Element): any => {
-    
-    const retrieve_scores = () => {
+
+    const retrieve_scores = async () => {
 
     }
 
