@@ -11,12 +11,13 @@ const SOLRQueryGenerator = (name: String, school: String) => `https://search-pro
 const OverlayFactory = (name: String, school: String, data: any, sibling: Element): any => {
 
     const retrieve_scores = async () => {
-
+        const data = await (await fetch(SOLRQueryGenerator(name, school))).json();
+        console.log(data)
     }
 
     return {
         render: (): HTMLElement => {
-            console.log(name, school, data);
+            retrieve_scores();
             const container = document.createElement("div")
             container.setAttribute("class", "hoangio-overlay")
             container.style.display = "block"
@@ -34,7 +35,7 @@ const OverlayFactory = (name: String, school: String, data: any, sibling: Elemen
  * @param school - Name of School
  */
 export const HoangioComponentFactory = (name: string, school: String, sibling: Element): any => ({
-    render: () : void => {
+    render: (): void => {
         const button = document.createElement("button");
         button.setAttribute("class", "hoangio-button")
         button.innerText = "Hoangio";
